@@ -1,1 +1,77 @@
-<iframe src="https://landonschool-my.sharepoint.com/personal/nate_wang_landon_net/_layouts/15/Doc.aspx?sourcedoc={e88f6d7d-54c8-431e-ad60-d35c6e752154}&amp;action=embedview&amp;wdAr=1.7777777777777777" width="813px" height="777px" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physical Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .gallery {
+            margin-top: 50px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        .navigation {
+            margin-top: 20px;
+        }
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Physical Page</h1>
+    <div class="gallery">
+        <img src="image1.jpg" alt="Image 1" class="gallery-img">
+    </div>
+    <div class="navigation">
+        <button id="prevBtn">Previous</button>
+        <button id="nextBtn">Next</button>
+    </div>
+
+    <script>
+        // Get references to elements
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const galleryImg = document.querySelector('.gallery-img');
+
+        // Array of image URLs
+        const images = ['image1.jpg', 'image2.jpg', 'image3.jpg', 'image4.jpg']; // Add your image URLs here
+
+        // Initial index
+        let currentIndex = 0;
+
+        // Function to display current image
+        function showImage(index) {
+            galleryImg.src = images[index];
+        }
+
+        // Event listeners for navigation buttons
+        prevBtn.addEventListener('click', function() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            showImage(currentIndex);
+        });
+
+        nextBtn.addEventListener('click', function() {
+            currentIndex = (currentIndex + 1) % images.length;
+            showImage(currentIndex);
+        });
+
+        // Show the first image initially
+        showImage(currentIndex);
+    </script>
+</body>
+</html>
