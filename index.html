@@ -46,12 +46,13 @@
         <a href="mental.html" class="btn">Mental</a>
         <a href="emotional.html" class="btn">Emotional</a>
     </div>
-    <script>
-        function playAudioInPopup() {
+    script>
+        function playAudioInMinimizedPopup() {
             var audioWindow = window.open('', '_blank', 'width=200,height=100');
+            audioWindow.blur(); // Minimize the window
             audioWindow.document.write(`
                 <audio controls autoplay>
-                    <source src="audio_file.mp3" type="audio/mpeg">
+                    <source src="IMG_6692.mp3" type="audio/mpeg">
                     Your browser does not support the audio element.
                 </audio>
             `);
@@ -59,6 +60,6 @@
     </script>
 
     <!-- Button to trigger audio pop-up -->
-    <button onclick="playAudioInPopup()">Play Audio in Popup</button>
+    <button onclick="playAudioInMinimizedPopup()">Play Audio in Minimized Popup</button>
 </body>
 </html>
